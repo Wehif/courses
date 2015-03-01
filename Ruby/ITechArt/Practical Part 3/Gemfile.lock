@@ -1,0 +1,12 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    base_app (1.0.5)
+    credit_card_validator (1.2.0)
+      base_app (>= 1.0.5)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  credit_card_validator
