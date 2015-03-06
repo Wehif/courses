@@ -1,0 +1,353 @@
+
+
+Started GET "/" for 127.0.0.1 at 2015-03-06 12:46:59 +0300
+
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+	bin/rake db:migrate RAILS_ENV=development
+
+):
+  activerecord (4.2.0) lib/active_record/migration.rb:393:in `check_pending!'
+  activerecord (4.2.0) lib/active_record/migration.rb:374:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:88:in `call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:88:in `_run_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:734:in `_run_call_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  web-console (2.1.0) lib/web_console/middleware.rb:37:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.0) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.0) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.0) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  rack (1.6.0) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.0) lib/rack/handler/webrick.rb:89:in `service'
+  /home/student1/.rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /home/student1/.rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /home/student1/.rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /home/student1/.gem/ruby/2.2.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.7ms)
+  Rendered /home/student1/.gem/ruby/2.2.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.2ms)
+  Rendered /home/student1/.gem/ruby/2.2.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.6ms)
+  Rendered /home/student1/.gem/ruby/2.2.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (45.0ms)
+  Rendered /home/student1/.rubies/ruby-2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.1.0/lib/web_console/templates/_markup.html (0.8ms)
+  Rendered /home/student1/.rubies/ruby-2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.1.0/lib/web_console/templates/style.css within layouts/inlined_string (0.5ms)
+  Rendered /home/student1/.rubies/ruby-2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.1.0/lib/web_console/templates/_inner_console_markup.html within layouts/inlined_string (0.4ms)
+  Rendered /home/student1/.rubies/ruby-2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.1.0/lib/web_console/templates/_prompt_box_markup.html within layouts/inlined_string (0.5ms)
+  Rendered /home/student1/.rubies/ruby-2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.1.0/lib/web_console/templates/console.js within layouts/javascript (36.2ms)
+  Rendered /home/student1/.rubies/ruby-2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.1.0/lib/web_console/templates/main.js within layouts/javascript (0.5ms)
+  Rendered /home/student1/.rubies/ruby-2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.1.0/lib/web_console/templates/error_page.js within layouts/javascript (0.6ms)
+  Rendered /home/student1/.rubies/ruby-2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.1.0/lib/web_console/templates/index.html (68.4ms)
+  [1m[36m (81.2ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL) [0m
+  [1m[35m (0.1ms)[0m  select sqlite_version(*)
+  [1m[36m (74.7ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to DeviseCreateUsers (20150303154947)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+DEPRECATION WARNING: `#timestamp` was called without specifying an option for `null`. In Rails 5, this behavior will change to `null: false`. You should manually specify `null: true` to prevent the behavior of your existing migrations from changing. (called from block in change at /home/student1/git/courses/Ruby/ITechArt/Slideshow/db/migrate/20150303154947_devise_create_users.rb:34)
+  [1m[35m (0.5ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar, "last_sign_in_ip" varchar, "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (0.3ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+
+  [1m[36m (0.2ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20150303154947"]]
+  [1m[36m (93.9ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.2ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+[0m
+  [1m[35m (0.3ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+
+
+
+Started GET "/" for 127.0.0.1 at 2015-03-06 12:47:29 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by UsersController#index as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users"
+  Rendered users/index.html.haml within layouts/application (31.7ms)
+Completed 200 OK in 1610ms (Views: 1588.5ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/assets/users/omniauth_callbacks-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for 127.0.0.1 at 2015-03-06 12:47:31 +0300
+
+
+Started GET "/assets/application-5266d2988799ecc8fe6e81eaab412e7d.css?body=1" for 127.0.0.1 at 2015-03-06 12:47:31 +0300
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for 127.0.0.1 at 2015-03-06 12:47:31 +0300
+
+
+Started GET "/assets/turbolinks-f87b3583ca50adb0488b031297f5580d.js?body=1" for 127.0.0.1 at 2015-03-06 12:47:31 +0300
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for 127.0.0.1 at 2015-03-06 12:47:31 +0300
+
+
+Started GET "/assets/application-001948a807d6467a657420955d9f0c1c.js?body=1" for 127.0.0.1 at 2015-03-06 12:47:31 +0300
+
+
+Started GET "/assets/users/omniauth_callbacks-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for 127.0.0.1 at 2015-03-06 12:47:31 +0300
+
+
+Started GET "/images/favicon.ico" for 127.0.0.1 at 2015-03-06 12:47:31 +0300
+
+ActionController::RoutingError (No route matches [GET] "/images/favicon.ico"):
+  actionpack (4.2.0) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.1.0) lib/web_console/middleware.rb:37:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.0) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.0) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.0) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  rack (1.6.0) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.0) lib/rack/handler/webrick.rb:89:in `service'
+  /home/student1/.rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /home/student1/.rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /home/student1/.rubies/ruby-2.2.0/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /home/student1/.gem/ruby/2.2.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.5ms)
+  Rendered /home/student1/.gem/ruby/2.2.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/routes/_route.html.erb (3.5ms)
+  Rendered /home/student1/.gem/ruby/2.2.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/routes/_table.html.erb (5.8ms)
+  Rendered /home/student1/.gem/ruby/2.2.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.0ms)
+  Rendered /home/student1/.gem/ruby/2.2.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (60.3ms)
+  Rendered /home/student1/.rubies/ruby-2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.1.0/lib/web_console/templates/_markup.html (1.1ms)
+  Rendered /home/student1/.rubies/ruby-2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.1.0/lib/web_console/templates/style.css within layouts/inlined_string (0.8ms)
+  Rendered /home/student1/.rubies/ruby-2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.1.0/lib/web_console/templates/_inner_console_markup.html within layouts/inlined_string (0.9ms)
+  Rendered /home/student1/.rubies/ruby-2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.1.0/lib/web_console/templates/_prompt_box_markup.html within layouts/inlined_string (0.4ms)
+  Rendered /home/student1/.rubies/ruby-2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.1.0/lib/web_console/templates/console.js within layouts/javascript (34.6ms)
+  Rendered /home/student1/.rubies/ruby-2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.1.0/lib/web_console/templates/main.js within layouts/javascript (0.4ms)
+  Rendered /home/student1/.rubies/ruby-2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.1.0/lib/web_console/templates/error_page.js within layouts/javascript (0.8ms)
+  Rendered /home/student1/.rubies/ruby-2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.1.0/lib/web_console/templates/index.html (68.9ms)
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for 127.0.0.1 at 2015-03-06 12:47:31 +0300
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for 127.0.0.1 at 2015-03-06 12:47:31 +0300
+
+
+Started GET "/assets/turbolinks-f87b3583ca50adb0488b031297f5580d.js?body=1" for 127.0.0.1 at 2015-03-06 12:47:31 +0300
+
+
+Started GET "/assets/users/omniauth_callbacks-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for 127.0.0.1 at 2015-03-06 12:47:31 +0300
+
+
+Started GET "/assets/application-001948a807d6467a657420955d9f0c1c.js?body=1" for 127.0.0.1 at 2015-03-06 12:47:31 +0300
+
+
+Started GET "/" for 127.0.0.1 at 2015-03-06 12:53:36 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by UsersController#index as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users"
+  Rendered users/index.html.haml within layouts/application (50.8ms)
+Completed 500 Internal Server Error in 4636ms
+
+ActionView::Template::Error (Undefined variable: "$alert-padding".
+  (in /home/student1/git/courses/Ruby/ITechArt/Slideshow/app/assets/stylesheets/bootstrap/_alerts.scss:10)):
+     9:     / Le HTML5 shim, for IE6-8 support of HTML elements
+    10:     /[if lt IE 9]
+    11:       = javascript_include_tag "//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.1/html5shiv.js"
+    12:     = stylesheet_link_tag "application", :media => "all"
+    13:     = favicon_link_tag 'apple-touch-icon-144x144-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '144x144'
+    14:     = favicon_link_tag 'apple-touch-icon-114x114-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '114x114'
+    15:     = favicon_link_tag 'apple-touch-icon-72x72-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '72x72'
+  app/assets/stylesheets/bootstrap/_alerts.scss:10
+  app/views/layouts/application.html.haml:12:in `_app_views_layouts_application_html_haml___2262968796966202403_69941110304280'
+  app/controllers/users_controller.rb:7:in `index'
+
+
+  Rendered /home/student1/.gem/ruby/2.2.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (31.5ms)
+  Rendered /home/student1/.gem/ruby/2.2.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (12.5ms)
+  Rendered /home/student1/.gem/ruby/2.2.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.3ms)
+  Rendered /home/student1/.gem/ruby/2.2.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (81.0ms)
+  Rendered /home/student1/.rubies/ruby-2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.1.0/lib/web_console/templates/_markup.html (1.0ms)
+  Rendered /home/student1/.rubies/ruby-2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.1.0/lib/web_console/templates/style.css within layouts/inlined_string (0.4ms)
+  Rendered /home/student1/.rubies/ruby-2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.1.0/lib/web_console/templates/_inner_console_markup.html within layouts/inlined_string (0.4ms)
+  Rendered /home/student1/.rubies/ruby-2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.1.0/lib/web_console/templates/_prompt_box_markup.html within layouts/inlined_string (0.7ms)
+  Rendered /home/student1/.rubies/ruby-2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.1.0/lib/web_console/templates/console.js within layouts/javascript (21.3ms)
+  Rendered /home/student1/.rubies/ruby-2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.1.0/lib/web_console/templates/main.js within layouts/javascript (0.7ms)
+  Rendered /home/student1/.rubies/ruby-2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.1.0/lib/web_console/templates/error_page.js within layouts/javascript (1.2ms)
+  Rendered /home/student1/.rubies/ruby-2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.1.0/lib/web_console/templates/index.html (66.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-03-06 12:59:23 +0300
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  Rendered users/index.html.haml within layouts/application (4.6ms)
+Completed 500 Internal Server Error in 125ms
+
+ActionView::Template::Error (Undefined variable: "$alert-padding".
+  (in /home/student1/git/courses/Ruby/ITechArt/Slideshow/app/assets/stylesheets/bootstrap/_alerts.scss:10)):
+     9:     / Le HTML5 shim, for IE6-8 support of HTML elements
+    10:     /[if lt IE 9]
+    11:       = javascript_include_tag "//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.1/html5shiv.js"
+    12:     = stylesheet_link_tag "application", :media => "all"
+    13:     = favicon_link_tag 'apple-touch-icon-144x144-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '144x144'
+    14:     = favicon_link_tag 'apple-touch-icon-114x114-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '114x114'
+    15:     = favicon_link_tag 'apple-touch-icon-72x72-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '72x72'
+  app/assets/stylesheets/bootstrap/_alerts.scss:10
+  app/views/layouts/application.html.haml:12:in `_app_views_layouts_application_html_haml___2262968796966202403_69941110304280'
+  app/controllers/users_controller.rb:7:in `index'
+
+
+  Rendered /home/student1/.gem/ruby/2.2.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (28.3ms)
+  Rendered /home/student1/.gem/ruby/2.2.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (7.0ms)
+  Rendered /home/student1/.gem/ruby/2.2.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /home/student1/.gem/ruby/2.2.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (64.8ms)
+  Rendered /home/student1/.rubies/ruby-2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.1.0/lib/web_console/templates/_markup.html (0.5ms)
+  Rendered /home/student1/.rubies/ruby-2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.1.0/lib/web_console/templates/style.css within layouts/inlined_string (0.4ms)
+  Rendered /home/student1/.rubies/ruby-2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.1.0/lib/web_console/templates/_inner_console_markup.html within layouts/inlined_string (0.4ms)
+  Rendered /home/student1/.rubies/ruby-2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.1.0/lib/web_console/templates/_prompt_box_markup.html within layouts/inlined_string (0.6ms)
+  Rendered /home/student1/.rubies/ruby-2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.1.0/lib/web_console/templates/console.js within layouts/javascript (22.7ms)
+  Rendered /home/student1/.rubies/ruby-2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.1.0/lib/web_console/templates/main.js within layouts/javascript (0.4ms)
+  Rendered /home/student1/.rubies/ruby-2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.1.0/lib/web_console/templates/error_page.js within layouts/javascript (0.6ms)
+  Rendered /home/student1/.rubies/ruby-2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.1.0/lib/web_console/templates/index.html (45.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-03-06 12:59:38 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by UsersController#index as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users"
+  Rendered users/index.html.haml within layouts/application (46.9ms)
+Completed 500 Internal Server Error in 146ms
+
+ActionView::Template::Error (Undefined variable: "$alert-padding".
+  (in /home/student1/git/courses/Ruby/ITechArt/Slideshow/app/assets/stylesheets/bootstrap/_alerts.scss:10)):
+     9:     / Le HTML5 shim, for IE6-8 support of HTML elements
+    10:     /[if lt IE 9]
+    11:       = javascript_include_tag "//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.1/html5shiv.js"
+    12:     = stylesheet_link_tag "application", :media => "all"
+    13:     = favicon_link_tag 'apple-touch-icon-144x144-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '144x144'
+    14:     = favicon_link_tag 'apple-touch-icon-114x114-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '114x114'
+    15:     = favicon_link_tag 'apple-touch-icon-72x72-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '72x72'
+  app/assets/stylesheets/bootstrap/_alerts.scss:10
+  app/views/layouts/application.html.haml:12:in `_app_views_layouts_application_html_haml___919129781443674824_70152151633160'
+  app/controllers/users_controller.rb:7:in `index'
+
+
+  Rendered /home/student1/.gem/ruby/2.2.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (26.7ms)
+  Rendered /home/student1/.gem/ruby/2.2.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (12.6ms)
+  Rendered /home/student1/.gem/ruby/2.2.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.9ms)
+  Rendered /home/student1/.gem/ruby/2.2.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (63.3ms)
+  Rendered /home/student1/.rubies/ruby-2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.1.0/lib/web_console/templates/_markup.html (1.2ms)
+  Rendered /home/student1/.rubies/ruby-2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.1.0/lib/web_console/templates/style.css within layouts/inlined_string (0.9ms)
+  Rendered /home/student1/.rubies/ruby-2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.1.0/lib/web_console/templates/_inner_console_markup.html within layouts/inlined_string (0.9ms)
+  Rendered /home/student1/.rubies/ruby-2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.1.0/lib/web_console/templates/_prompt_box_markup.html within layouts/inlined_string (0.5ms)
+  Rendered /home/student1/.rubies/ruby-2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.1.0/lib/web_console/templates/console.js within layouts/javascript (22.9ms)
+  Rendered /home/student1/.rubies/ruby-2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.1.0/lib/web_console/templates/main.js within layouts/javascript (0.4ms)
+  Rendered /home/student1/.rubies/ruby-2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.1.0/lib/web_console/templates/error_page.js within layouts/javascript (1.0ms)
+  Rendered /home/student1/.rubies/ruby-2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.1.0/lib/web_console/templates/index.html (64.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-03-06 13:02:33 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by UsersController#index as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users"
+  Rendered users/index.html.haml within layouts/application (24.8ms)
+Completed 200 OK in 687ms (Views: 662.1ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/assets/bootstrap.min-e6fcac083b7b7aa818705438be9d05b0.css?body=1" for 127.0.0.1 at 2015-03-06 13:02:34 +0300
+
+
+Started GET "/assets/users/omniauth_callbacks-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for 127.0.0.1 at 2015-03-06 13:02:34 +0300
+
+
+Started GET "/assets/turbolinks-f87b3583ca50adb0488b031297f5580d.js?body=1" for 127.0.0.1 at 2015-03-06 13:02:34 +0300
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for 127.0.0.1 at 2015-03-06 13:02:34 +0300
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for 127.0.0.1 at 2015-03-06 13:02:34 +0300
+
+
+Started GET "/assets/application-1845cad7c1421727b3541edc2bed86b9.css?body=1" for 127.0.0.1 at 2015-03-06 13:02:34 +0300
+
+
+Started GET "/assets/bootstrap-f069863cd7c15927c7faef4bba9fc907.js?body=1" for 127.0.0.1 at 2015-03-06 13:02:34 +0300
+
+
+Started GET "/assets/bootstrap.min-759065b3d223bc01ce2f7ad79e06c909.js?body=1" for 127.0.0.1 at 2015-03-06 13:02:34 +0300
+
+
+Started GET "/assets/npm-cf403c5b64dd9b6845dc71b854213aa9.js?body=1" for 127.0.0.1 at 2015-03-06 13:02:34 +0300
+
+
+Started GET "/assets/users/omniauth_callbacks-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for 127.0.0.1 at 2015-03-06 13:02:34 +0300
+
+
+Started GET "/assets/application-b08cc2a3acb262d09ce35269989c7d26.js?body=1" for 127.0.0.1 at 2015-03-06 13:02:34 +0300
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for 127.0.0.1 at 2015-03-06 13:02:34 +0300
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for 127.0.0.1 at 2015-03-06 13:02:34 +0300
+
+
+Started GET "/assets/turbolinks-f87b3583ca50adb0488b031297f5580d.js?body=1" for 127.0.0.1 at 2015-03-06 13:02:34 +0300
+
+
+Started GET "/assets/bootstrap-f069863cd7c15927c7faef4bba9fc907.js?body=1" for 127.0.0.1 at 2015-03-06 13:02:34 +0300
+
+
+Started GET "/assets/bootstrap.min-759065b3d223bc01ce2f7ad79e06c909.js?body=1" for 127.0.0.1 at 2015-03-06 13:02:34 +0300
+
+
+Started GET "/assets/npm-cf403c5b64dd9b6845dc71b854213aa9.js?body=1" for 127.0.0.1 at 2015-03-06 13:02:34 +0300
+
+
+Started GET "/assets/users/omniauth_callbacks-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for 127.0.0.1 at 2015-03-06 13:02:34 +0300
+
+
+Started GET "/assets/application-b08cc2a3acb262d09ce35269989c7d26.js?body=1" for 127.0.0.1 at 2015-03-06 13:02:35 +0300
