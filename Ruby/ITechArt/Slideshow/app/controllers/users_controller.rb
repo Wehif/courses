@@ -5,7 +5,7 @@ class UsersController < ApplicationController
     @users = User.all
 
     respond_to do |format|
-      format.html # index.html.erb
+      format.html
       format.json { render json: @users }
     end
   end
@@ -16,7 +16,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
 
     respond_to do |format|
-      format.html # show.html.erb
+      format.html
       format.json { render json: @user }
     end
   end
@@ -27,7 +27,7 @@ class UsersController < ApplicationController
     @user = User.new
 
     respond_to do |format|
-      format.html # new.html.erb
+      format.html
       format.json { render json: @user }
     end
   end
@@ -80,4 +80,10 @@ class UsersController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  private
+  ## Strong Parameters
+  #def user_params
+    #params.require(:user).permit(:email, :password, :password_confirmation, :remember_me, :nickname, :provider, :url, :username)
+  #end
 end
