@@ -4,6 +4,8 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :confirmable, :omniauthable, :omniauth_providers => [:google_oauth2, :linkedin, :twitter]
 
+  ROLES = %i[admin moderator author banned]
+
   def self.find_for_google_oauth2 (access_token, current_user)
     data = access_token.info
     user = User.where(:email => data["email"]).first

@@ -243,7 +243,7 @@ DEPENDENCIES
   better_errors
   bootstrap-sass (~> 3.3.3)
   byebug
-  cancancan
+  cancancan (~> 1.10)
   coffee-rails (~> 4.1.0)
   devise
   elasticsearch-model

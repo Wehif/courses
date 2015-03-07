@@ -31,10 +31,10 @@ gem 'elasticsearch-model'
 gem 'elasticsearch-rails'
 gem 'devise'
 gem 'omniauth'
-gem "omniauth-google-oauth2"
+gem 'omniauth-google-oauth2'
 gem 'omniauth-twitter'
 gem 'omniauth-linkedin-oauth2'
-gem 'cancancan'
+gem 'cancancan' , '~> 1.10'
 gem 'html2haml'
 
 
@@ -50,7 +50,7 @@ gem 'html2haml'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
-  gem "better_errors"
+  gem 'better_errors'
 
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
