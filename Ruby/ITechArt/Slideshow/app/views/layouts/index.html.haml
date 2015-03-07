@@ -29,7 +29,7 @@
         .navbar-collapse.collapse.navbar-responsive-collapse
           %ul.nav.navbar-nav
             - if user_signed_in?
-              %li= link_to "#{current_user.nickname} (#{current_user.provider})", user_path(current_user)
+              %li= link_to "#{current_user.nickname} (#{current_user.provider})", current_user.url
               %li= link_to "Sign out", destroy_user_session_path, :method => :delete
 
     .container

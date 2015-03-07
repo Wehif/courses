@@ -5,7 +5,7 @@ class UsersController < ApplicationController
     @users = User.all
 
     respond_to do |format|
-      format.html # index.html.erb
+      format.html
       format.json { render json: @users }
     end
   end
@@ -16,7 +16,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
 
     respond_to do |format|
-      format.html # show.html.erb
+      format.html
       format.json { render json: @user }
     end
   end
@@ -27,7 +27,7 @@ class UsersController < ApplicationController
     @user = User.new
 
     respond_to do |format|
-      format.html # new.html.erb
+      format.html
       format.json { render json: @user }
     end
   end
@@ -59,7 +59,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
 
     respond_to do |format|
-      if @user.update_attributes(params[:user])
+      if @user.update_attributes(account_update_params)
         format.html { redirect_to @user, notice: 'User was successfully updated.' }
         format.json { head :no_content }
       else
@@ -79,5 +79,9 @@ class UsersController < ApplicationController
       format.html { redirect_to users_url }
       format.json { head :no_content }
     end
+  end
+
+  def account_update_params
+    params.require(:user).permit(:email, :nickname, :provider, :url)
   end
 end
