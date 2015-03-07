@@ -1,0 +1,9 @@
+%p#notice= notice
+%p
+  %label Photo
+  = image_tag(@photo.image_url) if @photo.image?
+
+
+= link_to 'Edit', edit_photo_path(@photo)
+\|
+= link_to 'Back', photos_path

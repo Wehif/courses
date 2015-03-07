@@ -1,0 +1,21 @@
+-model_class = Album.new.class
+%h1 Listing albums
+
+%table.table.table-striped
+  %thead
+    %tr
+      %th= model_class.human_attribute_name(:title)
+      %th= 'actions'.capitalize!
+      %th
+      
+  %tbody
+    - @albums.each do |album|
+      %tr
+        %td= album.title
+        %td= link_to 'Show', album
+        %td= link_to 'Edit', edit_album_path(album)
+        %td= link_to 'Destroy', album, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Album', new_album_path

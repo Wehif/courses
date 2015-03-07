@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  include CanCan::Ability
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -7,6 +8,8 @@ class User < ActiveRecord::Base
   ROLES = %i[admin moderator author banned]
 
   mount_uploader :avatar, AvatarUploader
+
+  has_many :albums
 
   def self.find_for_google_oauth2 (access_token, current_user)
     data = access_token.info
