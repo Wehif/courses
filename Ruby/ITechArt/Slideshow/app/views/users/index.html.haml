@@ -11,7 +11,7 @@
   %tbody
     - @users.each do |user|
       %tr
-        %td= link_to user.nickname, user.url
+        %td= link_to user.nickname, user_path(user)
         %td= user.email
         %td= user.provider
         %td= user.created_at

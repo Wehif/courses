@@ -59,7 +59,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
 
     respond_to do |format|
-      if @user.update_attributes(params[:user])
+      if @user.update_attributes(account_update_params)
         format.html { redirect_to @user, notice: 'User was successfully updated.' }
         format.json { head :no_content }
       else
@@ -81,9 +81,7 @@ class UsersController < ApplicationController
     end
   end
 
-  private
-  ## Strong Parameters
-  def user_params
-    params.require(:user).permit(:email, :password, :password_confirmation, :remember_me, :nickname, :provider, :url, :username)
+  def account_update_params
+    params.require(:user).permit(:email, :nickname, :provider, :url)
   end
 end
