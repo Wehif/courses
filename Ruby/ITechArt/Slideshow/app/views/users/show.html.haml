@@ -9,6 +9,9 @@
 %p
   %b Url:
   = @user.url
+%p
+  %label My Avatar
+  = image_tag(@user.avatar_url) if @user.avatar?
 
 = link_to 'Edit', edit_user_path(@user)
 \|

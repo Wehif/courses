@@ -56,6 +56,11 @@ GEM
       debugger-linecache (~> 1.2)
       slop (~> 3.6)
     cancancan (1.10.1)
+    carrierwave (0.10.0)
+      activemodel (>= 3.2.0)
+      activesupport (>= 3.2.0)
+      json (>= 1.7)
+      mime-types (>= 1.16)
     coderay (1.1.0)
     coffee-rails (4.1.0)
       coffee-script (>= 2.2.0)
@@ -123,6 +128,7 @@ GEM
     mail (2.6.3)
       mime-types (>= 1.16, < 3)
     mime-types (2.4.3)
+    mini_magick (4.1.0)
     mini_portile (0.6.2)
     minitest (5.5.1)
     multi_json (1.10.1)
@@ -244,6 +250,7 @@ DEPENDENCIES
   bootstrap-sass (~> 3.3.3)
   byebug
   cancancan (~> 1.10)
+  carrierwave
   coffee-rails (~> 4.1.0)
   devise
   elasticsearch-model
@@ -252,6 +259,7 @@ DEPENDENCIES
   html2haml
   jbuilder (~> 2.0)
   jquery-rails
+  mini_magick
   omniauth
   omniauth-google-oauth2
   omniauth-linkedin-oauth2

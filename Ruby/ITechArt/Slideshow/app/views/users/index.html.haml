@@ -3,6 +3,7 @@
 %table.table.table-striped
   %thead
     %tr
+      %th= model_class.human_attribute_name(:avatar)
       %th= model_class.human_attribute_name(:nickname)
       %th= model_class.human_attribute_name(:email)
       %th= model_class.human_attribute_name(:provider)
@@ -11,6 +12,7 @@
   %tbody
     - @users.each do |user|
       %tr
+        %td= image_tag user.avatar_url(:thumb)
         %td= link_to user.nickname, user_path(user)
         %td= user.email
         %td= user.provider
