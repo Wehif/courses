@@ -1,5 +1,5 @@
 Slideshow::Application.routes.draw do
-  resources :photos
+  resources :photos,:only => [:destroy]
   resources :albums
 
     devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }

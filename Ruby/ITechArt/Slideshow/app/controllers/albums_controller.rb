@@ -45,7 +45,7 @@ class AlbumsController < ApplicationController
   # PATCH/PUT /albums/1.json
   def update
     #authorize @album
-    if @album.update(params.require(:album).permit(:title,:description))
+    if @album.update(album_params)
       # to handle multiple images upload on update when user add more picture
       if params[:images]
         params[:images].each { |image|
@@ -77,7 +77,6 @@ class AlbumsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def album_params
-      params.require(:album).permit(:title, :description, :image)
-      #params.require(:user).permit(:email, :nickname, :provider, :url, :avatar)
+      params.require(:album).permit(:title, :description, :images, :visibility)
     end
 end

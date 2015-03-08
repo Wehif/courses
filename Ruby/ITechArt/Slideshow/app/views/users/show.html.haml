@@ -2,10 +2,13 @@
 
 %p
   %b Nickname:
-  = @user.email
+  = @user.nickname
 %p
   %b Provider:
   = @user.provider
+%p
+  %b Role:
+  = @user.role
 %p
   %b Url:
   = @user.url
@@ -13,6 +16,14 @@
   %label My Avatar
   = image_tag(@user.avatar_url) if @user.avatar?
 
-= link_to 'Edit', edit_user_path(@user)
-\|
-= link_to 'Back', users_path
+%p
+  There are #{@user.albums.count} albums.
+- @user.albums.each do |album|
+  -if current_user.id == album.user_id || current_user.role == 'admin' || album.visibility == 'public'
+    = link_to album.title, album
+
+%p
+  -if current_user.id == @user.id || current_user.role == 'admin'
+    = link_to 'Edit', edit_user_path(@user)
+    \|
+  = link_to 'Back', users_path

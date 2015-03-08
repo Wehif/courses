@@ -25,11 +25,11 @@
           %span.icon-bar
           %span.icon-bar
           %span.icon-bar
-        %a.navbar-brand(href="#") Slideshow
+        %a.navbar-brand(href="#{users_path}") Slideshow
         .navbar-collapse.collapse.navbar-responsive-collapse
           %ul.nav.navbar-nav
             - if user_signed_in?
-              %li= link_to "#{current_user.nickname} (#{current_user.provider})", user_path(current_user)
+              %li= link_to "#{current_user.nickname}", user_path(current_user)
               %li= link_to "Sign out", destroy_user_session_path, :method => :delete
 
     .container
@@ -41,11 +41,14 @@
           .well.sidebar-nav
             %h3 Sidebar
             %ul.nav.nav-list
-              %li.nav-header Sidebar
+              %li.nav-header You r member?
               - if !user_signed_in?
                 %li= link_to "Sign in with Google", user_omniauth_authorize_path(:google_oauth2)
                 %li= link_to "Sign in with LinkedIn", user_omniauth_authorize_path(:linkedin)
                 %li= link_to "Sign in with Twitter", user_omniauth_authorize_path(:twitter)
+              - else
+                %li= link_to "Create New Album", new_album_path
+                %li= link_to "Show all albums", albums_path
 
       %footer
         %p &copy; Company 2015

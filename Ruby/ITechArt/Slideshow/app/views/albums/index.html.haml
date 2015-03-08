@@ -6,15 +6,16 @@
     %tr
       %th= model_class.human_attribute_name(:title)
       %th= 'actions'.capitalize!
-      %th
       
   %tbody
     - @albums.each do |album|
       %tr
-        %td= album.title
-        %td= link_to 'Show', album
-        %td= link_to 'Edit', edit_album_path(album)
-        %td= link_to 'Destroy', album, :method => :delete, :data => { :confirm => 'Are you sure?' }
+        -if current_user.id == album.user_id || current_user.role == 'admin' || album.visibility == 'public'
+          %td= album.title
+          %td= link_to 'Show', album
+          -if current_user.id == album.user_id || current_user.role == 'admin'
+            %td= link_to 'Edit', edit_album_path(album)
+            %td= link_to 'Destroy', album, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
 %br
 
