@@ -33,6 +33,7 @@ class AlbumsController < ApplicationController
           @album.photos.create(image: image)
         }
       end
+
       flash[:notice] = "Your album has been created."
       redirect_to @album
     else
@@ -52,6 +53,7 @@ class AlbumsController < ApplicationController
           @album.photos.create(image: image)
         }
       end
+
       flash[:notice] = "Album has been updated."
       redirect_to @album
     else
@@ -77,6 +79,6 @@ class AlbumsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def album_params
-      params.require(:album).permit(:title, :description, :images, :visibility)
+      params.require(:album).permit(:title, :description, :images, :visibility, :category_id)
     end
 end

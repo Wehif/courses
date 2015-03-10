@@ -9,6 +9,10 @@
     = f.label :visibility
     %br/
     = f.collection_select :visibility, Album::VISIBILITY, :to_s, lambda{|i| i.to_s.humanize}
+  .field
+    %p
+      %b Category
+      = f.collection_select :category_id, Category.all, :id, :category_title, :prompt => "Select one"
   %p
     %b Photos
   %p

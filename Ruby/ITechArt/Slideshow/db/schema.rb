@@ -11,16 +11,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150308154242) do
+ActiveRecord::Schema.define(version: 20150310155323) do
 
   create_table "albums", force: :cascade do |t|
-    t.string   "title",       null: false
+    t.string   "title",                          null: false
     t.text     "description"
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "visibility"
+    t.string   "visibility",  default: "public"
+    t.integer  "category_id", default: 1
   end
+
+  add_index "albums", ["category_id"], name: "index_albums_on_category_id"
+  add_index "albums", ["title"], name: "index_albums_on_title"
+  add_index "albums", ["visibility"], name: "index_albums_on_visibility"
+
+  create_table "categories", force: :cascade do |t|
+    t.string "category_title", default: "common"
+  end
+
+  add_index "categories", ["category_title"], name: "index_categories_on_category_title"
 
   create_table "photos", force: :cascade do |t|
     t.integer  "album_id"
@@ -30,12 +41,12 @@ ActiveRecord::Schema.define(version: 20150308154242) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "email",                  default: "",    null: false
-    t.string   "encrypted_password",     default: "",    null: false
+    t.string   "email",                  default: "",       null: false
+    t.string   "encrypted_password",     default: "",       null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,     null: false
+    t.integer  "sign_in_count",          default: 0,        null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
@@ -46,11 +57,11 @@ ActiveRecord::Schema.define(version: 20150308154242) do
     t.string   "unconfirmed_email"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "nickname",               default: "",    null: false
-    t.boolean  "remember_me",            default: false, null: false
+    t.string   "nickname",               default: "",       null: false
+    t.boolean  "remember_me",            default: false,    null: false
     t.string   "provider"
     t.string   "url"
-    t.string   "role"
+    t.string   "role",                   default: "member"
     t.string   "avatar"
   end
 
@@ -58,5 +69,6 @@ ActiveRecord::Schema.define(version: 20150308154242) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true
   add_index "users", ["nickname"], name: "index_users_on_nickname", unique: true
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  add_index "users", ["role"], name: "index_users_on_role"
 
 end

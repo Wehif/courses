@@ -27,6 +27,10 @@
     %p
       =@album.visibility
     %p
+      %b Category
+    %p
+      =@album.category.category_title
+    %p
       %b Photos
     %p
       There are #{@album.photos.count} photos.
