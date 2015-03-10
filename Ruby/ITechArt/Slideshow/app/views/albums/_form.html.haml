@@ -13,6 +13,10 @@
     %p
       %b Category
       = f.collection_select :category_id, Category.all, :id, :category_title, :prompt => "Select one"
+  .field
+    %p
+      %b Tags
+      =f.text_field :tag_list
   %p
     %b Photos
   %p

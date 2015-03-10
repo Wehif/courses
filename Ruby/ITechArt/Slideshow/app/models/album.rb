@@ -5,7 +5,7 @@ class Album < ActiveRecord::Base
   validates 	:category, presence: true
   # enable nested attributes for photos through album class
   accepts_nested_attributes_for :photos, allow_destroy: true
-  #accepts_nested_attributes_for :category, allow_destroy: true
   VISIBILITY = %i[private public]
-  #delegate :category_title, to: :category
+  acts_as_taggable # Alias for acts_as_taggable_on :tags
+  acts_as_taggable_on :tags
 end
