@@ -7,7 +7,6 @@
     = f.text_field :description, :class => 'text_field'
   .field
     = f.label :visibility
-    %br/
     = f.collection_select :visibility, Album::VISIBILITY, :to_s, lambda{|i| i.to_s.humanize}
   .field
     %p
@@ -17,6 +16,10 @@
     %p
       %b Tags
       =f.text_field :tag_list
+    %p
+      -@album.tags.each do |tag|
+        = link_to tag.name, tag_path(tag)
+        %p
   %p
     %b Photos
   %p
@@ -37,3 +40,6 @@
 
   .actions
     = f.submit 'Save', :class => "btn btn-default"
+
+  = javascript_include_tag 'specific/albums/_form'
+

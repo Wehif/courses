@@ -7,5 +7,4 @@ class Album < ActiveRecord::Base
   accepts_nested_attributes_for :photos, allow_destroy: true
   VISIBILITY = %i[private public]
   acts_as_taggable # Alias for acts_as_taggable_on :tags
-  acts_as_taggable_on :tags
 end

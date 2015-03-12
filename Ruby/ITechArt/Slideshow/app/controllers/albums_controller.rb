@@ -1,15 +1,27 @@
 class AlbumsController < ApplicationController
   before_action :set_album, only: [:show, :edit, :update, :destroy]
+  before_action :init_gon, only: [:new, :edit, :create, :update]
 
   # GET /albums
   # GET /albums.json
   def index
     @albums = Album.all
+    tag_cloud
+  end
+
+  def init_gon
+    @tags = ActsAsTaggableOn::Tag.all.collect { |tag| tag.name }
+    gon.jbuilder template: 'app/views/albums/_form.json'
+  end
+
+  def tag_cloud
+    @tags = Album.tag_counts_on(:tags)
   end
 
   # GET /albums/1
   # GET /albums/1.json
   def show
+    tag_cloud
   end
 
   # GET /albums/new
@@ -53,7 +65,6 @@ class AlbumsController < ApplicationController
           @album.photos.create(image: image)
         }
       end
-
       flash[:notice] = "Album has been updated."
       redirect_to @album
     else
@@ -79,6 +90,6 @@ class AlbumsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def album_params
-      params.require(:album).permit(:title, :description, :images, :visibility, :category_id, :tag_list => [])
+      params.require(:album).permit(:title, :description, :images, :visibility, :category_id, :tag_list)
     end
 end
