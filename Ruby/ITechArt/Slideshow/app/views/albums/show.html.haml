@@ -1,0 +1,51 @@
+-if current_user.id == @album.user_id || current_user.role == 'admin' || @album.visibility == 'public'
+  %p#notice= notice
+  %p
+    %label Album
+    %p
+      %b Title
+    %p
+      =@album.title
+    %p
+      %b Description
+    %p
+      =@album.description
+    %p
+      %b Created At
+    %p
+      =@album.created_at
+    %p
+      %b Update At
+    %p
+      =@album.updated_at
+    %p
+      %b ID
+    %p
+      =@album.id
+    %p
+      %b Visibility
+    %p
+      =@album.visibility
+    %p
+      %b Category
+    %p
+      =@album.category.category_title
+    %p
+      %b Tags
+    %p
+      - tag_cloud(@tags, %w(css1 css2 css3 css4)) do |tag, css_class|
+        = link_to tag.name, tag_path(tag), :class => css_class
+    %p
+      %b Photos
+    %p
+      There are #{@album.photos.count} photos.
+  - @album.photos.each do |photo|
+    = link_to image_tag(photo.image.thumb.url), photo
+
+  %p
+    -if current_user.id == @album.user_id || current_user.role == 'admin'
+      = link_to 'Edit', edit_album_path(@album)
+      \|
+      = link_to 'Destroy', @album, :method => :delete, :data => { :confirm => 'Are you sure?' }
+      \|
+    = link_to 'Back', albums_path

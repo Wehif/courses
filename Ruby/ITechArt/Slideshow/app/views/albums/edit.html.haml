@@ -1,0 +1,8 @@
+-if current_user.id == @album.user_id || current_user.role == 'admin'
+  %h1 Editing album
+
+  = render 'form'
+
+  = link_to 'Show', @album
+  \|
+  = link_to 'Back', albums_path

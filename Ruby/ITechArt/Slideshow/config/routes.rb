@@ -1,4 +1,9 @@
 Slideshow::Application.routes.draw do
+  get 'search', to: 'search#search'
+  post 'search', to: 'search#search'
+  resources :tags
+  resources :photos,:only => [:destroy]
+  resources :albums
     devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
     resources :users, :only => [:index, :destroy, :edit, :update, :show]
     root :to => 'users#index'

@@ -1,0 +1,8 @@
+%h1
+  Albums Tagged as #{@tag.name}
+- if @albums.count > 0
+  %ul
+    - @albums.each do |album|
+      %li= link_to album.title, album_path(album)
+- else
+  %p This tag is not associated with any albums.

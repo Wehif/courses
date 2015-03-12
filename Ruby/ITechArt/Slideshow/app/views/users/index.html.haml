@@ -3,6 +3,7 @@
 %table.table.table-striped
   %thead
     %tr
+      %th= model_class.human_attribute_name(:avatar)
       %th= model_class.human_attribute_name(:nickname)
       %th= model_class.human_attribute_name(:email)
       %th= model_class.human_attribute_name(:provider)
@@ -11,6 +12,7 @@
   %tbody
     - @users.each do |user|
       %tr
+        %td= image_tag user.avatar_url(:thumb)
         %td= link_to user.nickname, user_path(user)
         %td= user.email
         %td= user.provider
@@ -19,11 +21,12 @@
           = link_to t('.show', :default => t("helpers.links.show")), user_path(user),
            :method => :get, :confirm => t('.confirm', :default => t("helpers.links.confirm",
             :default => 'Are you sure?')), :class => 'btn btn-mini btn-info'
-        %td
-          = link_to t('.edit', :default => t("helpers.links.edit")), edit_user_path(user),
-           :method => :get, :confirm => t('.confirm', :default => t("helpers.links.confirm",
-            :default => 'Are you sure?')), :class => 'btn btn-mini btn-warning'
-        %td
-          = link_to t('.destroy', :default => t("helpers.links.destroy")), user_path(user),
-           :method => :delete, :confirm => t('.confirm', :default => t("helpers.links.confirm",
-            :default => 'Are you sure?')), :class => 'btn btn-mini btn-danger'
+        -if current_user.id == user.id || current_user.role == 'admin'
+          %td
+            = link_to t('.edit', :default => t("helpers.links.edit")), edit_user_path(user),
+             :method => :get, :confirm => t('.confirm', :default => t("helpers.links.confirm",
+              :default => 'Are you sure?')), :class => 'btn btn-mini btn-warning'
+          %td
+            = link_to t('.destroy', :default => t("helpers.links.destroy")), user_path(user),
+             :method => :delete, :confirm => t('.confirm', :default => t("helpers.links.confirm",
+              :default => 'Are you sure?')), :class => 'btn btn-mini btn-danger'

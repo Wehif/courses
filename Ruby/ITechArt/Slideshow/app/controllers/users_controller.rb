@@ -3,10 +3,13 @@ class UsersController < ApplicationController
   # GET /users.json
   def index
     @users = User.all
-
-    respond_to do |format|
-      format.html
-      format.json { render json: @users }
+    if current_user.role == 'admin'
+      respond_to do |format|
+        format.html
+        format.json { render json: @users }
+      end
+    else
+      redirect_to albums_path
     end
   end
 
@@ -82,6 +85,6 @@ class UsersController < ApplicationController
   end
 
   def account_update_params
-    params.require(:user).permit(:email, :nickname, :provider, :url)
+    params.require(:user).permit(:email, :nickname, :provider, :url, :avatar, :role)
   end
 end
