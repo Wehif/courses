@@ -1,4 +1,8 @@
+require 'elasticsearch/model'
+
 class User < ActiveRecord::Base
+  include Elasticsearch::Model
+  include Elasticsearch::Model::Callbacks
   include CanCan::Ability
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
@@ -50,4 +54,34 @@ class User < ActiveRecord::Base
     end
     user
   end
+
+  def self.search(query)
+    __elasticsearch__.search(
+      {
+          query: {
+              query_string: { query: "nickname: *#{query}*" } },
+          highlight: {
+              pre_tags: ['<em>'],
+              post_tags: ['</em>'],
+              fields: {
+                  nickname: {}
+              }
+          }
+      }
+    )
+  end
+
+  settings index: { number_of_shards: 1 } do
+    mappings dynamic: 'false' do
+      indexes :nickname, index_options: 'offsets'
+    end
+  end
 end
+
+User.__elasticsearch__.client.indices.delete index: User.index_name rescue nil
+
+User.__elasticsearch__.client.indices.create \
+  index: User.index_name,
+  body: { settings: User.settings.to_hash, mappings: User.mappings.to_hash }
+
+User.import

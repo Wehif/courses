@@ -17,11 +17,7 @@ class Album < ActiveRecord::Base
     __elasticsearch__.search(
         {
             query: {
-                multi_match: {
-                    query: query,
-                    fields: ['title^10', 'description^10']
-                }
-            },
+                query_string: { query: "title: *#{query}* OR description: *#{query}*" } },
             highlight: {
                 pre_tags: ['<em>'],
                 post_tags: ['</em>'],
@@ -36,8 +32,8 @@ class Album < ActiveRecord::Base
 
   settings index: { number_of_shards: 1 } do
     mappings dynamic: 'false' do
-      indexes :title, analyzer: 'english', index_options: 'offsets'
-      indexes :description, analyzer: 'english', index_options: 'offsets'
+      indexes :title, index_options: 'offsets'
+      indexes :description, index_options: 'offsets'
     end
   end
 

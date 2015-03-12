@@ -11,11 +11,23 @@
         = link_to album.try(:highlight).try(:title) ? album.highlight.title[0].html_safe : album.title, |
           controller: "albums",                                                                         |
           action: "show",                                                                               |
-          id: album.id                                                                                  |
+          id: album.id
       %h5
-        = album.try(:highlight).try(:description) ? album.highlight.title[0].html_safe : album.description
-      - if album.try(:highlight).try(:description)
-        - album.highlight.title.each do |snippet|
-          %p
-            = snippet.html_safe
-            \...
+        = album.try(:highlight).try(:description) ? album.highlight.description[0].html_safe : album.description
+
+  - @users.each do |user|
+    %li
+      %h3
+        = link_to user.try(:highlight).try(:nickname) ? user.highlight.nickname[0].html_safe : user.nickname, |
+          controller: "users",                                                                                |
+          action: "show",
+          id: user.id
+
+  - @tags.each do |tag|
+    %li
+      %h3
+        = link_to tag.try(:highlight).try(:name) ? tag.highlight.name[0].html_safe : tag.name, |
+          controller: "tags",
+          action: "show",
+          id: tag.id
+

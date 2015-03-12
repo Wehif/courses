@@ -6,8 +6,8 @@ class SearchController < ApplicationController
       @tags = []
     else
       @albums = Album.search params[:q]
-      #@users = User.search params[:q]
-      #@tags = Tag.search params[:q]
+      @users = User.search params[:q]
+      @tags = Tag.search params[:q]
     end
   end
 end
