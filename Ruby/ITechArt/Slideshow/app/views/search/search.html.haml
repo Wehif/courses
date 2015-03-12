@@ -1,0 +1,21 @@
+%h1 Search
+= form_for search_path, method: :get do |f|
+  %p
+    = f.label "Search for"
+    = text_field_tag :q, params[:q]
+    = submit_tag "Go", name: nil
+%ul
+  - @albums.each do |album|
+    %li
+      %h3
+        = link_to album.try(:highlight).try(:title) ? album.highlight.title[0].html_safe : album.title, |
+          controller: "albums",                                                                         |
+          action: "show",                                                                               |
+          id: album.id                                                                                  |
+      %h5
+        = album.try(:highlight).try(:description) ? album.highlight.title[0].html_safe : album.description
+      - if album.try(:highlight).try(:description)
+        - album.highlight.title.each do |snippet|
+          %p
+            = snippet.html_safe
+            \...

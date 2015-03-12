@@ -18,6 +18,16 @@ class AlbumsController < ApplicationController
     @tags = Album.tag_counts_on(:tags)
   end
 
+  def add_new_tag(tag)
+    @album.tag_list.add(tag)
+    render :edit
+  end
+
+  def del_tag(tag)
+    @album.tag_list.remove(tag)
+    render :edit
+  end
+
   # GET /albums/1
   # GET /albums/1.json
   def show

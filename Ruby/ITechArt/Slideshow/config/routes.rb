@@ -1,4 +1,6 @@
 Slideshow::Application.routes.draw do
+  get 'search', to: 'search#search'
+  post 'search', to: 'search#search'
   resources :tags
   resources :photos,:only => [:destroy]
   resources :albums
