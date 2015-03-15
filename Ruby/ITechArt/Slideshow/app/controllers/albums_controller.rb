@@ -32,6 +32,8 @@ class AlbumsController < ApplicationController
   # GET /albums/1.json
   def show
     tag_cloud
+    @album = Album.find(params[:id])
+    @comment = @album.comments.new
   end
 
   # GET /albums/new

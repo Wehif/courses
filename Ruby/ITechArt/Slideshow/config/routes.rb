@@ -1,4 +1,6 @@
 Slideshow::Application.routes.draw do
+  resources :comments
+
   get 'search', to: 'search#search'
   post 'search', to: 'search#search'
   resources :tags

@@ -49,3 +49,13 @@
       = link_to 'Destroy', @album, :method => :delete, :data => { :confirm => 'Are you sure?' }
       \|
     = link_to 'Back', albums_path
+
+    %h3 Comments
+    - @album.comments.each do |comment|
+      %div
+        %strong= comment.user_nickname
+        %br/
+        %p= comment.body
+
+    = render 'comments/form'
+

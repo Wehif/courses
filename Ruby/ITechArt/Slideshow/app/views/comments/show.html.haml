@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b User nickname:
+  = @comment.user_nickname
+%p
+  %b Body:
+  = @comment.body
+%p
+  %b Album:
+  = @comment.album_id
+
+= link_to 'Edit', edit_comment_path(@comment)
+\|
+= link_to 'Back', comments_path
