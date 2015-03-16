@@ -37,13 +37,13 @@ ActiveRecord::Schema.define(version: 20150315222117) do
     t.string   "user_nickname"
     t.text     "body"
     t.integer  "album_id"
-    t.integer  "comment_id"
+    t.integer  "parent_id"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
   end
 
   add_index "comments", ["album_id"], name: "index_comments_on_album_id"
-  add_index "comments", ["comment_id"], name: "index_comments_on_comment_id"
+  add_index "comments", ["parent_id"], name: "index_comments_on_parent_id"
   add_index "comments", ["user_nickname"], name: "index_comments_on_user_nickname"
 
   create_table "photos", force: :cascade do |t|

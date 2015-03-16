@@ -4,7 +4,7 @@ class CreateComments < ActiveRecord::Migration
       t.string :user_nickname
       t.text :body
       t.integer :album_id
-      t.integer :comment_id
+      t.references :parent, index:true
 
       t.timestamps null: false
     end
@@ -12,6 +12,5 @@ class CreateComments < ActiveRecord::Migration
     add_foreign_key :comments, :comments
     add_index :comments, :user_nickname
     add_index :comments, :album_id
-    add_index :comments, :comment_id
   end
 end

@@ -11,6 +11,9 @@
     = current_user.nickname
     = f.hidden_field :user_nickname, :value => current_user.nickname
   .field
+    = f.label :parent_id
+    = f.text_field :parent_id
+  .field
     = f.label :body
     = f.text_area :body
   =f.hidden_field :album_id

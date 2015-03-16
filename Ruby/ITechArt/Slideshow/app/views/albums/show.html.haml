@@ -56,6 +56,11 @@
         %strong= comment.user_nickname
         %br/
         %p= comment.body
+        -if (comment)
+          .actions
+            = link_to 'Destroy', comment, :method => :delete, :remote => true
+            \|
+            = 'Reply'
 
     = render 'comments/form'
 
