@@ -3,7 +3,7 @@ require 'elasticsearch/model'
 class Album < ActiveRecord::Base
   include Elasticsearch::Model
   include Elasticsearch::Model::Callbacks
-
+  has_many :comments
   belongs_to	:user
   has_many    :photos, :inverse_of => :album, :dependent => :destroy
   belongs_to  :category

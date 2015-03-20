@@ -6,18 +6,18 @@
         - @user.errors.full_messages.each do |msg|
           %li= msg
 
-  .field
+  .form-group
     = f.label :email
-    = f.text_field :email
-  .field
+    = f.text_field :email, :class => 'form-control'
+  .form-group
     = f.label :nickname
-    = f.text_field :nickname
-  .field
+    = f.text_field :nickname, :class => 'form-control'
+  .form-group
     = f.label :provider
-    = f.text_field :provider
-  .field
+    = f.text_field :provider, :class => 'form-control'
+  .form-group
     = f.label :url
-    = f.text_field :url
+    = f.text_field :url , :class => 'form-control'
   %p
     %label My Avatar
     = image_tag(@user.avatar_url) if @user.avatar?
@@ -25,4 +25,4 @@
     = f.hidden_field :avatar_cache
 
   .actions
-    = f.submit 'Save'
+    = f.submit 'Save', :class => 'btn btn-primary'

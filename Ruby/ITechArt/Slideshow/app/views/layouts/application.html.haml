@@ -17,8 +17,6 @@
     = favicon_link_tag 'favicon.ico', :rel => 'shortcut icon'
     = include_gon
     = javascript_include_tag "application"
-
-
   %body
     .navbar.navbar-default.navbar-static-top
       .container
@@ -34,10 +32,12 @@
               %li= link_to "#{current_user.nickname}", user_path(current_user)
               %li= link_to "Sign out", destroy_user_session_path, :method => :delete
               %li
-                = form_tag :controller => 'search', action:'search' do
-                  = "Search for"
-                  = text_field_tag :q, params[:q]
-                  = submit_tag "Go", name: nil
+                .form-inline
+                  = form_tag :controller => 'search', action:'search' do
+                    .form-group
+                      = "Search for"
+                      = text_field_tag :q, params[:q] , :class => 'form-control'
+                      = submit_tag "Go", name: nil, :class => 'btn btn-default'
     .container
       .row
         .col-lg-9
@@ -51,8 +51,7 @@
               - if !user_signed_in?
                 %li= link_to "Sign in with Google", user_omniauth_authorize_path(:google_oauth2)
                 %li= link_to "Sign in with LinkedIn", user_omniauth_authorize_path(:linkedin)
-                %li= link_to "Sign in with Twitter", user_omniauth_authorize_path(:twitter)
-              - else
+              - if user_signed_in?
                 %li= link_to "Create New Album", new_album_path
                 %li= link_to "Show all albums", albums_path
 

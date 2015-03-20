@@ -3,6 +3,6 @@
 - if @albums.count > 0
   %ul
     - @albums.each do |album|
-      %li= link_to album.title, album_path(album)
+      %li= link_to album.title, album_path(album), :class => 'btn btn-link btn-lg'
 - else
   %p This tag is not associated with any albums.

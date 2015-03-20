@@ -1,0 +1,7 @@
+
+.comment-form
+  = simple_form_for @comment, :remote => true do |f|
+    = f.hidden_field :user_nickname, :value => current_user.nickname
+    = f.input :body, :input_html => { :rows => "2" }, :label => false
+    = f.hidden_field :album_id
+    = f.button :submit, :class => "btn btn-primary", :disable_with => "Submitting…"

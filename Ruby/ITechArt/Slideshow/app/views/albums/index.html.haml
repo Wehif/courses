@@ -6,22 +6,26 @@
     %tr
       %th= model_class.human_attribute_name(:title)
       %th= 'actions'.capitalize!
+      -if current_user.role == 'admin'
+        %th
+        %th
       
   %tbody
     - @albums.each do |album|
       %tr
         -if current_user.id == album.user_id || current_user.role == 'admin' || album.visibility == 'public'
-          %td= album.title
-          %td= link_to 'Show', album
+          %td
+            %h5= album.title
+          %td= link_to 'Show', album,  :class => 'btn btn-info btn-sm'
           -if current_user.id == album.user_id || current_user.role == 'admin'
-            %td= link_to 'Edit', edit_album_path(album)
-            %td= link_to 'Destroy', album, :method => :delete, :data => { :confirm => 'Are you sure?' }
+            %td= link_to 'Edit', edit_album_path(album),  :class => 'btn btn-warning btn-sm'
+            %td= link_to 'Destroy', album, :method => :delete, :data => { :confirm => 'Are you sure?' },  :class => 'btn btn-danger btn-sm'
 
 %br
 
-= link_to 'New Album', new_album_path
+= link_to 'New Album', new_album_path, :class => 'btn btn-link'
 
 %p Tags cloud
 %p
   - tag_cloud(@tags, %w(css1 css2 css3 css4)) do |tag, css_class|
-    = link_to tag.name, tag_path(tag), :class => css_class
+    = link_to tag.name, tag_path(tag), :class => 'btn btn-default'
