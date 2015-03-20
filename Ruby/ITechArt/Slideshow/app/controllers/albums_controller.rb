@@ -33,6 +33,7 @@ class AlbumsController < ApplicationController
   def show
     tag_cloud
     @album = Album.find(params[:id])
+    @comments = @album.comments.all.order('created_at desc')
     @comment = @album.comments.new
   end
 

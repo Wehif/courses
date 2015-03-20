@@ -1,0 +1,7 @@
+%div.comment{ :id => "comment-#{comment.id}" }
+  %hr
+  = link_to "×", comment, :method => :delete, :remote => true, :disable_with => "×", :class => 'close'
+  %h4
+    = comment.user_nickname
+    %small= comment.updated_at
+  %p= comment.body

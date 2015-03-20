@@ -11,30 +11,16 @@
     %p
       =@album.description
     %p
-      %b Created At
-    %p
-      =@album.created_at
-    %p
-      %b Update At
-    %p
-      =@album.updated_at
-    %p
-      %b ID
-    %p
-      =@album.id
-    %p
-      %b Visibility
-    %p
-      =@album.visibility
-    %p
       %b Category
     %p
       =@album.category.category_title
     %p
       %b Tags
     %p
-      - tag_cloud(@tags, %w(css1 css2 css3 css4)) do |tag, css_class|
-        = link_to tag.name, tag_path(tag), :class => css_class
+      -@album.tags.each do |tag|
+        =link_to tag, tag_path(tag), :class => 'btn btn-default btn-xs'
+      - if @album.tags.size == 0
+        = 'No have a tags'
     %p
       %b Photos
     %p
@@ -44,23 +30,13 @@
 
   %p
     -if current_user.id == @album.user_id || current_user.role == 'admin'
-      = link_to 'Edit', edit_album_path(@album)
+      = link_to 'Edit', edit_album_path(@album), :class => 'btn btn-default btn-sm'
       \|
-      = link_to 'Destroy', @album, :method => :delete, :data => { :confirm => 'Are you sure?' }
+      = link_to 'Destroy', @album, :method => :delete, :data => { :confirm => 'Are you sure?' }, :class => 'btn btn-default btn-sm'
       \|
-    = link_to 'Back', albums_path
+    = link_to 'Back', albums_path, :class => 'btn btn-default btn-sm'
 
     %h3 Comments
-    - @album.comments.each do |comment|
-      %div
-        %strong= comment.user_nickname
-        %br/
-        %p= comment.body
-        -if (comment)
-          .actions
-            = link_to 'Destroy', comment, :method => :delete, :remote => true
-            \|
-            = 'Reply'
-
-    = render 'comments/form'
+  = render 'comments/form'
+  = render :partial => 'comments/comment', :collection => @album.comments.all, :as => :comment
 

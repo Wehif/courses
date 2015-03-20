@@ -1,5 +1,5 @@
 Slideshow::Application.routes.draw do
-  resources :comments
+  resources :comments, :only => [:create, :destroy]
 
   get 'search', to: 'search#search'
   post 'search', to: 'search#search'

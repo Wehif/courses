@@ -1,3 +1,10 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://coffeescript.org/
+jQuery ->
+# Destroy comment
+  $(document)
+  .on "ajax:beforeSend", ".photo", ->
+    $(this).fadeTo('fast', 1)
+    $(this).hide('fast')
+  .on "ajax:success", ".photo", ->
+    $(this).hide('fast')
+  .on "ajax:error", ".photo", ->
+    $(this).fadeTo('fast', 1)
